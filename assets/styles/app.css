@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(166, 216, 169);
+}
+.title{
+    background-color: brown;
+}
+.gradient-custom-3 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+    .gradient-custom-4 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }
+  
+
+    .form-border{
+
+        border-radius: 0px 50px 0px;
+    }
+    .title-border{
+        border: rgb(136, 222, 136) solid 1px;
+        border-radius: 0px 50px 0px;
+        padding: 5px;
+        color: #fff;
+
+    }
+    .form-btn-border{
+        border-radius: 0px 50px 0px; 
+    }

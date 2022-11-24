@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JobController!{% endblock %}
+
+{% block body %}
+<style>
+    
+</style>
+
+
+
+
+
+ <h2 class="page-header  text-light p-3">Update Job</h2>
+ <div class="fromInput col-lg-12 col-md-6 col-sm-12 col-xs-12">
+ {{form_start(form)}} 
+ {{form_widget(form)}}
+ {{form_end(form)}}
+</div>
+<a href="/job" class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg">Back to more Jobs</a>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <section class="vh-100 bg-image register"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5 title-border bg-secondary">Create an account</h2>
+
+            
+             
+               
+            {{ form_start(registrationForm) }}
+             <div class="form-outline mb-4">
+                   
+                     {{ form_row(registrationForm.email) }}
+             </div>
+           
+            <div class="form-outline mb-4">
+                    {{ form_row(registrationForm.plainPassword) }}
+            </div>
+
+            <div class="form-check d-flex justify-content-center mb-4">
+                 
+              
+                    {{ form_row(registrationForm.agreeTerms) }}
+                  
+                </div>
+              {{ form_end(registrationForm) }}    
+            
+            {# <div class="d-flex justify-content-center">
+                  <button type="button"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                </div> #}
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+                    class="fw-bold text-body"><u><a href="/{{app.user ? 'logout' : 'login'}}">{{ app.user ? 'Logout' : 'Login'}}</u></a></p>
+
+            
+          
+
+            
+
+        </div>
+    </div>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</section>
+{# <div class="container">
+    <div class="row">
+        <div class="col-6 align-self-center">
+            <div class="card card-body">Center</div>
+        </div>
+        <div class="col-6">
+            <div class="card text-white bg-danger">
+                <div class="card-body">
+                    <h3 class="card-title">Taller</h3>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn text-white border-light">Outline</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div #}
+{% endblock %}

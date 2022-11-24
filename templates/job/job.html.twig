@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JobController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1 class="bg-light btn-success text-warning">Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/Users/dawit/OneDrive/Documents/DreamJob/src/Controller/JobController.php'|file_link(0) }}">src/Controller/JobController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/Users/dawit/OneDrive/Documents/DreamJob/templates/job/index.html.twig'|file_link(0) }}">templates/job/index.html.twig</a></code></li>
+    </ul>
+</div>
+<div>
+<a  class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg "
+   href="/{{app.user ? 'logout' : 'login'}}">
+{{app.user ? 'Logout' :  'Login'}}
+</a>
+<h1 class="detailsTitel">{{details}}</h1>
+ <p>{{ app.user.email}}</p>
+   {% if is_granted('ROLE_ADMIN') %}   
+    
+      <a class="nav-link" href="{{ path('admin_dashboard') }}">Admin</a> 
+       {% if jobs is empty %}
+<h3 class="bg-warning">There is no Job at the moment.</h3>
+{% else %}
+ 
+{% for job in jobs %}
+<a href="/details/{{job.id}}">
+<div class="card mb-3" style="width: 300px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+     <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
+   
+      {# <img src="{{asset('build/images/image1.dd7a3cff.jpg')}}" class="img-fluid rounded-start" alt="It was a Job image"> #}
+    </div> 
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{job.jobName}}</h5>
+       
+        <p class="card-text">Posted on:<small class="text-muted">{{job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
+      </div>
+     
+    </div>
+  </div>
+</div>
+      <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_create') }}">Create</a> 
+      <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_detail',{"id": job.id}) }}">Detail</a> 
+      <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_edit',{"id": job.id}) }}">Edit</a> 
+      <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_delete',{"id": job.id}) }}">Delete</a> 
+{% endfor %}
+</a> 
+
+
+
+     
+
+{% endif %}
+    {% endif %}  
+   
+ {% if jobs is empty %}
+
+<h3 class="bg-warning">There is no Job at the moment.</h3>
+{% endif %}
+{% if not is_granted('ROLE_ADMIN') %}
+{% for job in jobs %}
+<a href="/details/{{job.id}}">
+<div class="card mb-3" style="width: 300px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+     <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
+   
+      {# <img src="{{asset('build/images/image1.dd7a3cff.jpg')}}" class="img-fluid rounded-start" alt="It was a Job image"> #}
+    </div> 
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{job.jobName}}</h5>
+       
+        <p class="card-text">Posted on:<small class="text-muted">{{job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
+      </div>
+     
+    </div>
+  </div>
+</div>
+{% endfor %}
+</a> 
+{% endif %}
+
+</div>
+{% endblock %}
+
+
+
+
+
+{#  DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=8&charset=utf8mb4" #}
+

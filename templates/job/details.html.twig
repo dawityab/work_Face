@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Job Details!{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+   
+    
+    <h1>{{ details }}</h1>
+   
+  
+
+
+
+
+<div class="card mb-3" style="max-width: 300px;">
+  <div class="row g-0">
+    
+     <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
+   
+      {# <img src="{{asset('build/images/image1.dd7a3cff.jpg')}}" class="img-fluid rounded-start" alt="It was a Job image"> #}
+   
+   
+      <div class="card-body">
+        <h5 class="card-title">{{job.jobName}}</h5>
+        <p class="card-text">{{job.jobDescription}}</p>
+         <p class="card-text">{{job.jobSalary}}</p>
+        <p class="card-text">Posted on:<small class="text-muted">{{job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
+     
+    </div>
+  
+  </div>
+</div>
+    <a href="/" class="btn btn-info">Back to home</a> 
+    <a href="/apply" class="btn btn-info">Apply Now</a> 
+   <a href="/job" class="btn btn-info"> jobs</a> 
+</div>
+
+
+
+
+{% endblock %}
+

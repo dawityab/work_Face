@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+
+<div>
+{# {% if is_granted('ROLE_ADMIN') %} 
+    <p>{{ app.user.email}}</p>
+     <a class="nav-link" >Admin</a>
+     <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('admin_job') }}">Edit</a>
+ {% endif %}  #}
+{# {% if jobs is empty %} #}
+<h1>Dashboard</h1>
+<h1>I am Admin</h1>
+
+{% endblock %}

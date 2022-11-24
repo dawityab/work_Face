@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<form action="{{ path('app_login') }}" method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.email }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+ <section class="vh-100 bg-image register"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5 title-border bg-secondary">Login</h2>
+
+    <div class="w-4/5 m-auto text-center">
+        <div class="py-12 border-b border-gray-200">
+           
+    
+            <input 
+                type="email" 
+                value="{{ last_username }}" 
+                name="email" 
+                id="inputEmail" 
+                class="form-control form-control-lg form-border m-3" 
+                placeholder="Your Email"
+                autocomplete="email" 
+                required 
+                autofocus
+            >
+
+            <input 
+                type="password" 
+                name="password" 
+                id="inputPassword" 
+                class="form-control form-control-lg form-border m-3" 
+                autocomplete="current-password" 
+                placeholder="Your Password"
+                required
+            >
+
+            <input 
+                type="hidden" 
+                name="_csrf_token"
+                value="{{ csrf_token('authenticate') }}"
+            >
+
+            <button 
+                class="btn btn-outline-info form-control form-control-lg form-border m-3 form-btn-border px-md-5 btn-lg" 
+                type="submit">
+                Sign in
+            </button>
+        </form>
+        
+                <p class="text-center text-muted mt-5 mb-0">Don't you have an account? <a href="#!"
+                    class="fw-bold text-body"><u><a href="/register">Register here</u></a></p>
+
+    </div>
+</div>
+</section>
+{% endblock %}
