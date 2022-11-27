@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Service\FileUploader;
 use App\Entity\Company;
 use App\Entity\Job;
+use App\Entity\Apply;
 use App\Form\JobType;
+use App\Form\ApplyType;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -138,6 +140,47 @@ class JobController extends AbstractController
 
         return $this->redirectToRoute('app_job');
     }
- 
+    #[Route('/apply', name: 'app_apply')]
+    public function appApply(Request $request, ManagerRegistry $doctrine, FileUploader $fileUploader ): Response
+    {
+    $apply = new Apply();
+    //  dd($product);
+    $form = $this->createForm(ApplyType::class, $apply);
+    $form->handleRequest($request);
 
+    if($form->isSubmitted() && $form->isValid()){
+       
+        $cvFile = $form->get('cv')->getData();
+        $attachmentsFile = $form->get('attachments')->getData();
+        $coverLetterFile = $form->get('coverLetter')->getData();
+        if ($cvFile && $attachmentsFile && $coverLetterFile) {
+        $cvFileName = $fileUploader->upload($cvFile);
+        $attachmentsFileName = $fileUploader->upload($attachmentsFile);
+        $coverLetterFileName = $fileUploader->upload($coverLetterFile);
+        
+        //$pictureFileName = $fileUploader->upload($pictureFile);
+                 
+        
+        $apply->setCv($cvFileName);
+        $apply->setAttachments($attachmentsFileName);
+        $apply->setCoverLetter($coverLetterFileName);
+        }
+        $applyForm = $form->getData();
+        //  dd($product);
+        $em = $doctrine->getManager();
+        $em ->persist($applyForm);
+        $em->flush();
+        
+        $this->addFlash("warning", "Thank you for applying");
+        return $this->redirectToRoute("app_job");
+       
+    }
+    return $this->render('job/apply.html.twig', [
+       "form" => $form->createView()
+      
+       
+    ]);
+
+
+    }
 }

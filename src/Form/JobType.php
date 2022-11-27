@@ -35,11 +35,11 @@ class JobType extends AbstractType
                           'Education and Training' => 'Education and Training','Health and Safety' => 'Health and Safety', 'Finance and Accounting' => 'Finance and Accounting', 'Food Service' => 'Food Service', 'Transport and Logistic' => 'Transport and Logistic',
                           'Language and Culture' => 'Language and Culture','Volunteer and Social' => 'Volunteer and Social','Sport and Youth' => 'Sport and Youth', 'Security' => 'Security'],
             
-            'attr' => ['class' => 'form-control form-control-lg form-border m-3',  'placeholder' => 'Catgory'],
+            'attr' => ['class' => 'form-control form-control-lg form-border m-3 ',  'placeholder' => 'Catgory'],
             'label'   => false
            ])
            ->add('jobDescription', TextType::class, [
-            'attr' => ['class' => 'form-control form-control-lg form-border m-3', 'placeholder' => 'Catgory'],
+            'attr' => ['class' => 'form-control form-control-lg form-border m-3 ', 'placeholder' => 'Description'],
             'label'   => false
            
            ])
