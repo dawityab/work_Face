@@ -37,6 +37,9 @@ class Job
     #[ORM\Column(length: 255)]
     private ?string $jobLocation = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $companyName = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -134,6 +137,18 @@ class Job
     public function setJobLocation(string $jobLocation): self
     {
         $this->jobLocation = $jobLocation;
+
+        return $this;
+    }
+
+    public function getCompanyName(): ?string
+    {
+        return $this->companyName;
+    }
+
+    public function setCompanyName(string $companyName): self
+    {
+        $this->companyName = $companyName;
 
         return $this;
     }

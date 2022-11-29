@@ -90,6 +90,10 @@ class JobType extends AbstractType
             'attr' => ['class' => 'form-control form-control-lg form-border m-3', 'placeholder' => 'Location of the Job'],
             'label'   => false
           ])
+          ->add('companyName', TextType::class, [
+            'attr' => ['class' => 'form-control form-control-lg form-border m-3', 'placeholder' => 'Company Name'],
+            'label'   => false
+          ])
      
           ->add('save', SubmitType::class, [
               // 'label' => 'Submit Job',

@@ -3,16 +3,43 @@
 {% block title %}Hello JobController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">WorkFace</a>
+    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+       {% if is_granted('ROLE_ADMIN') %}   
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/create">Add New Job</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a  class="btn btn-outline-info  text-dark form-border m-3 form-btn-border px-md-5 btn-sm "
+        href="/{{app.user ? 'logout' : 'login'}}">
+        {{app.user ? 'Logout' :  'Login'}}
+        </a>
+        </li>
+        <li class="nav-item">
+           <a  class="btn btn-outline-info  text-dark form-border m-3 form-btn-border px-md-5 btn-sm " href="/job">
+                Job
+           </a>
+        </li>
+        <li class="nav-item">
+          {# <a class="nav-link disabled" href="/delete">Show a detail of a Job</a> #}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<div class="example-wrapper">
+<div >
    
     
     <h1>{{ home }}</h1>
-     <a href="/login" class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg ">Login</a> 
+     {# <a href="/login" class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg ">Login</a>  #}
 
 </div>
 

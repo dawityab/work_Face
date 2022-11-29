@@ -11,6 +11,7 @@
     {% if app.user %}
         <div class="mb-3">
             You are logged in as {{ app.user.email }}, <a href="{{ path('app_logout') }}">Logout</a>
+           <p><a href="{{ path('app_job') }}">Back </a></p> 
         </div>
     {% endif %}
  <section class="vh-100 bg-image register"
@@ -56,7 +57,7 @@
             >
 
             <button 
-                class="btn btn-outline-info form-control form-control-lg form-border m-3 form-btn-border px-md-5 btn-lg" 
+                class="btn btn-outline-info text-dark form-border m-3 form-btn-border px-md-5 btn-sm" 
                 type="submit">
                 Sign in
             </button>

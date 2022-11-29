@@ -3,7 +3,36 @@
 {% block title %}Hello JobController!{% endblock %}
 
 {% block body %}
-<style>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">WorkFace</a>
+    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+       {% if is_granted('ROLE_ADMIN') %}   
+        <li class="nav-item">
+          <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg" aria-current="page" href="/create">Add New Job</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a  class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-sm "
+   href="/{{app.user ? 'logout' : 'login'}}">
+{{app.user ? 'Logout' :  'Login'}}
+</a>
+        </li>
+        <li class="nav-item">
+          {# <a class="nav-link" href="/delete">Delete a Job</a> #}
+        </li>
+        <li class="nav-item">
+          {# <a class="nav-link disabled" href="/delete">Show a detail of a Job</a> #}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{# <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
@@ -16,59 +45,59 @@
         <li>Your controller at <code><a href="{{ 'C:/Users/dawit/OneDrive/Documents/DreamJob/src/Controller/JobController.php'|file_link(0) }}">src/Controller/JobController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'C:/Users/dawit/OneDrive/Documents/DreamJob/templates/job/index.html.twig'|file_link(0) }}">templates/job/index.html.twig</a></code></li>
     </ul>
-</div>
-<div>
-<a  class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg "
-   href="/{{app.user ? 'logout' : 'login'}}">
-{{app.user ? 'Logout' :  'Login'}}
-</a>
-<h1 class="detailsTitel">{{details}}</h1>
- <p>{{ app.user.email}}</p>
-   {% if is_granted('ROLE_ADMIN') %}   
+</div> #}
+{% if is_granted('ROLE_ADMIN') %}
+<p>Welcome back {{ app.user.userName}}</p> 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Job Id</th>
+      <th scope="col">Company Image</th>
+      <th scope="col">Job Title</th>
+      <th scope="col">Company Name</th>
+      <th scope="col">Date of Posted</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  {% for job in jobs %}
+  <tbody>
+    <tr>
     
-      <a class="nav-link" href="{{ path('admin_dashboard') }}">Admin</a> 
-       {% if jobs is empty %}
-<h3 class="bg-warning">There is no Job at the moment.</h3>
-{% else %}
- 
-{% for job in jobs %}
-<a href="/details/{{job.id}}">
-<div class="card mb-3" style="width: 300px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-     <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
-   
-      {# <img src="{{asset('build/images/image1.dd7a3cff.jpg')}}" class="img-fluid rounded-start" alt="It was a Job image"> #}
-    </div> 
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{job.jobName}}</h5>
-       
-        <p class="card-text">Posted on:<small class="text-muted">{{job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
-      </div>
-     
-    </div>
-  </div>
-</div>
-      <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_create') }}">Create</a> 
+      <th scope="row">{{job.id}}</th>
+      <td> <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
+   </td>
+      <td>{{job.jobName}}</td>
+      <td>{{job.companyName}}</td>
+      <td>{{job.jobPostedDate|date('F j, Y, g:i a')}}</td>
+      <td>
       <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_detail',{"id": job.id}) }}">Detail</a> 
       <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_edit',{"id": job.id}) }}">Edit</a> 
       <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_delete',{"id": job.id}) }}">Delete</a> 
-{% endfor %}
-</a> 
 
-
-
-     
-
-{% endif %}
-    {% endif %}  
+      </td>
+    </tr>
    
- {% if jobs is empty %}
+  </tbody>
+  {% endfor %}
+</table>
+{% else %}
 
+
+
+<div>
+
+{# <p>Welcome back {{app.user.userName}}</p> #}
+ 
+  {# {% if is_granted('ROLE_USER') %} #}
+
+{# {% endif %} #}
+ {% if jobs is empty %}
+<p>Welcome back {{ app.user.userName}}</p> 
 <h3 class="bg-warning">There is no Job at the moment.</h3>
-{% endif %}
-{% if not is_granted('ROLE_ADMIN') %}
+
+{% else %}
+
+
 {% for job in jobs %}
 <a href="/details/{{job.id}}">
 <div class="card mb-3" style="width: 300px;">
@@ -81,18 +110,21 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">{{job.jobName}}</h5>
-       
+        <p class="card-title">Company - {{job.companyName}}</p>
         <p class="card-text">Posted on:<small class="text-muted">{{job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
       </div>
      
     </div>
   </div>
 </div>
+
 {% endfor %}
 </a> 
-{% endif %}
 
+{% endif %}
+{% endif %}
 </div>
+
 {% endblock %}
 
 

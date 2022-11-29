@@ -54,20 +54,22 @@
               <div>{{ form_widget(form.country, {'attr': {'class':'form-control form-control-lg form-border mb-3'}}) }}</div>
 
               <div class="text-muted">{{ form_label(form.cv) }}<span class="text-danger">*</span></div>  
-              <div>{{ form_widget(form.cv, {'attr': {'class':'form-control form-control-lg form-border mb-3'}}) }}</div>
+              <div>{{ form_widget(form.cv, {'attr': {'class':'form-control form-control-lg form-border mb-3  '}}) }}</div>
 
               <div class="text-muted">{{ form_label(form.attachments) }}<span class="text-danger">*</span></div>  
-              <div>{{ form_widget(form.attachments, {'attr': { 'class':'form-control form-control-lg form-border mb-3'}}) }}</div>
+              <div>{{ form_widget(form.attachments, {'attr': { 'class':'form-control form-control-lg form-border mb-3  '}}) }}</div>
 
               <div class="text-muted">{{ form_label(form.coverLetter) }}<span class="text-danger">*</span></div>  
-              <div>{{ form_widget(form.coverLetter, {'attr': { 'class':'form-control form-control-lg form-border mb-3'}}) }}</div>
+              <div>{{ form_widget(form.coverLetter, {'attr': { 'class':'form-control form-control-lg form-border mb-3  '}}) }}</div>
 
-                    
-           
             </div>
           
            
            {{form_end(form)}}
+
+           
+                 <a href="/job" class="btn btn-outline-info  text-dark form-border m-3 form-btn-border px-md-5 btn-sm">More jobs</a>      
+           
                 
             
             {# <div class="d-flex justify-content-center">

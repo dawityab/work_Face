@@ -40,4 +40,7 @@ body {
     .form-btn-border{
         border-radius: 0px 50px 0px; 
     }
-   
+   .img-fluid{
+    width: auto;
+    height: 100px;
+   }

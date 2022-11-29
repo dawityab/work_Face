@@ -20,12 +20,12 @@
 <div>
 <a  class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg "
    href="/{{app.user ? 'logout' : 'login'}}">
-{{app.user ? 'Logout' :  'Login'}}
+x{{app.user ? 'Logout' :  'Login'}}
 </a>
 <h1 class="detailsTitel">{{details}}</h1>
 
   {% if is_granted('ROLE_ADMIN') %}  
-      <p>{{ app.user.email}}</p> 
+      <p>X{{ app.user.email}}</p> 
       <a class="nav-link" href="{{ path('admin_job') }}">Admin</a> 
       {# <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_create') }}">Create</a> 
       <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_details') }}">Detail</a> 

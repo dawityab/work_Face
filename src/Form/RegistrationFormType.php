@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -24,6 +25,11 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['class' => 'form-control form-control-lg form-border',  'placeholder' => 'Your Email'],
                 'label'   => false
                ])
+            ->add('userName', TextType::class, [
+                'attr' => ['class' => 'form-control form-control-lg form-border',  'placeholder' => 'Your User name'],
+                'label'   => false
+               ])
+               
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                
@@ -55,7 +61,7 @@ class RegistrationFormType extends AbstractType
             ])
               ->add('Register', SubmitType::class, [
                 
-                 'attr' => ['class' => 'btn btn-outline-info form-control form-control-lg form-border m-3 form-btn-border px-md-5 btn-lg'],
+                 'attr' => ['class' => 'btn btn-outline-info text-dark form-border m-3 form-btn-border px-md-5 btn-sm'],
                  
              ]);
         
