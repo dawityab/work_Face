@@ -97,7 +97,7 @@ class JobType extends AbstractType
      
           ->add('save', SubmitType::class, [
               // 'label' => 'Submit Job',
-              'attr' => ['class' => 'btn btn-outline-info form-control form-control-lg form-border m-3', 'placeholder' => 'Sumbit']
+              'attr' => ['class' => 'btn btn-outline-info   form-border m-3 px-4', 'placeholder' => 'Sumbit']
              
           ]);
   }

@@ -35,15 +35,15 @@
 </div>
   
    {% if is_granted('ROLE_ADMIN') %}   
-   <a href="/" class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg">Back to home</a> 
-   <a href="/job" class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg">More jobs</a> 
+   <a href="/" class="btn btn-outline-info text-dark form-border  form-btn-border m-3 px-4 btn-sm">Back to home</a> 
+   <a href="/job" class="btn btn-outline-info text-dark form-border  form-btn-border m-3 px-4 btn-sm">More jobs</a> 
 
    {% else %}
-  <a  class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg "href="/{{app.user ? 'apply' : 'login'}}">
+  <a  class="btn btn-outline-info text-dark form-border m-3 form-btn-border m-3 px-4 btn-sm "href="/{{app.user ? 'apply' : 'login'}}">
     {{app.user ? 'Apply Now' :  'To apply this job Please Login'}}
   </a>
-   <a href="/" class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg">Back to home</a> 
-   <a href="/job" class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg">More jobs</a> 
+   <a href="/" class="btn btn-outline-info text-dark form-border m-3 form-btn-border m-3 px-4 btn-sm">Back to home</a> 
+   <a href="/job" class="btn btn-outline-info form-control-lg text-dark form-border form-btn-border m-3 px-4 btn-sm">More jobs</a> 
 {% endif %}
 
   

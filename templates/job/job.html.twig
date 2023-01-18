@@ -13,17 +13,17 @@
       <ul class="navbar-nav">
        {% if is_granted('ROLE_ADMIN') %}   
         <li class="nav-item">
-          <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg" aria-current="page" href="/create">Add New Job</a>
+          <a class="btn btn-outline-info text-dark form-border m-3 form-btn-border px-md-5 btn-sm" aria-current="page" href="/create">Add New Job</a>
         </li>
         {% endif %}
         <li class="nav-item">
-          <a  class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-sm "
+          <a  class="btn btn-outline-info text-dark form-border m-3 form-btn-border px-md-5 btn-sm "
    href="/{{app.user ? 'logout' : 'login'}}">
 {{app.user ? 'Logout' :  'Login'}}
 </a>
         </li>
         <li class="nav-item">
-          {# <a class="nav-link" href="/delete">Delete a Job</a> #}
+          <a class="btn btn-outline-info text-dark form-border m-3 form-btn-border px-md-5 btn-sm" href="/">Home</a>
         </li>
         <li class="nav-item">
           {# <a class="nav-link disabled" href="/delete">Show a detail of a Job</a> #}

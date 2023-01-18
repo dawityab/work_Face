@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search result {% endblock %}
+
+
+{% block body %}
+
+<div>
+
+{% if data|length < 1 %}
+<p class="text-uppercase text-center m-5 bg-warning text-secondary ">0 result found</p>
+{% else %}
+{% for e in data %}
+
+   {# {{ app.session.get('data')}}  #}
+<a href="/details/{{e.id}}">
+<div class="card mb-3" style="width: 300px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+    <p>{{e.id}}</p>
+     <img src="{{asset('images/' ~ e.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
+   
+      {# <img src="{{asset('build/images/image1.dd7a3cff.jpg')}}" class="img-fluid rounded-start" alt="It was a Job image"> #}
+    </div> 
+    <div class="col-md-8">
+      <div class="card-body">
+     <h5 class="card-title">{{e.jobName}}</h5>
+       <p class="card-title">{{e.companyName}}</p>
+       
+         <p class="card-text">Posted on:<small class="text-muted">{{e.jobPostedDate|date('F j, Y, g:i a')}}</small></p> 
+      </div>
+     
+    </div>
+  </div>
+</div>
+</a>
+{% endfor %}
+{% endif %}
+
+ <a href="/job" class="btn btn-outline-primary  text-center text-light form-border m-3 form-btn-border m-3 px-4 btn-sm">Back</a>
+
+</div>
+
+{% endblock %}

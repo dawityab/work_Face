@@ -8,6 +8,7 @@ use App\Entity\Job;
 use App\Entity\Apply;
 use App\Form\JobType;
 use App\Form\ApplyType;
+use App\Form\SearchType;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,18 +18,36 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 
 class JobController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(Request $request, ManagerRegistry $doctrine, SessionInterface $sessionInterface): Response
     {
         $home = 'Home';
+        $data = $request->query->all();
+        // $sessionFormData  = $sessionInterface->get('data');
+        $jobs = $doctrine->getManager()->getRepository(Job::class)->findAll();
+        $form = $this->createForm(SearchType::class, $data);
+        $form->handleRequest($request);
         
-        return $this->render('job/index.html.twig', [
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $sessionInterface->set('data', $data);
+            return $this->render('job/search.html.twig', ['data' => $data, 'jobs' => $jobs]);
+        }
+
+        return $this->renderForm('job/index.html.twig', [
+            'form' => $form,
             'home' => $home,
-            
+            'jobs' => $jobs
         ]);
+        // return $this->render('job/index.html.twig', [
+            
+            
+        // ]);
     }
     
     #[Route('/job', name: 'app_job')]
@@ -183,4 +202,43 @@ class JobController extends AbstractController
 
 
     }
+    #[Route('/search', name: 'search')]
+    public function search(Request $request, SessionInterface $sessionInterface)
+    {   
+      
+        $data = $request->query->all();
+        $sessionFormData  = $sessionInterface->get('data');
+
+        $form = $this->createForm(SearchType::class, $data,['method' => 'GET']);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $sessionInterface->set('data', $data);
+            var_dump($data);
+            return $this->render('job/search.html.twig', ['data' => $data]);
+        }
+
+        return $this->renderForm('job/index.html.twig', [
+            'form' => $form
+        ]);
+//     #[Route('/filter', name: 'app_filter')]
+//     public function filterJob(ManagerRegistry $doctrine, Request $request): Response
+//     {
+      
+     
+//             $em= $doctrine->getManager();
+//             $events = $em->getRepository(Job::class)->findBy(array(),
+//             array('id' => 'ASC')
+//           );
+
+
+//         // dd($events);
+       
+//         return $this->render('event/filter.html.twig', [
+           
+//             'events' => $events
+//         ]);
+    
+ }
 }

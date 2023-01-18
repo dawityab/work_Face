@@ -23,9 +23,13 @@
         </a>
         </li>
         <li class="nav-item">
+         {% if jobs is empty %}
+         <p class="text-uppercase text-center m-5 bg-warning text-secondary ">0 result found</p>
+         {% else %}
            <a  class="btn btn-outline-info  text-dark form-border m-3 form-btn-border px-md-5 btn-sm " href="/job">
                 Job
            </a>
+           {% endif %}
         </li>
         <li class="nav-item">
           {# <a class="nav-link disabled" href="/delete">Show a detail of a Job</a> #}
@@ -37,9 +41,21 @@
 
 <div >
    
-    
+    {# {% if not is_granted('ROLE_ADMIN') %}  #}
+      {# <p class="text-uppercase text-center m-5 bg-warning text-secondary ">{{app.user.email}}</p> #}
+      {# <p class="text-uppercase text-center m-5 bg-warning text-secondary ">Welcome back</p>  #}
+    {# {% endif %} #}
     <h1>{{ home }}</h1>
      {# <a href="/login" class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg ">Login</a>  #}
+
+{{ form_start(form) }}
+    
+    {{ form_widget(form.jobCatagory, {'attr' : {'class' : 'form-control-sm form-border m-2 mb-3 px-4 '}, 'value' : app.session.get('jobCatagory')} ) }}
+    {# {{ form_widget(form.jobName, {'attr' : {'class' : 'form-control-sm form-border mb-3 px-2 '}, 'value' : app.session.get('jobName.jobName')} ) }} #}
+    {# {{ form_widget(form.jobLocation, {'attr' : {'class' : 'form-control-sm form-border mb-3 px-2'}, 'value' : app.session.get('jobLocation.jobLocation')} ) }} #}
+    {{ form_widget(form.Search, {'label': 'Find Job', 'attr' : {'class' : 'btn btn-outline-info  text-dark form-border m-3 px-4 form-btn-border btn-sm'}} ) }}
+
+{{ form_end(form) }}
 
 </div>
 
