@@ -245,60 +245,6 @@ class JobController extends AbstractController
 
 
     }
-    #[Route('/search', name: 'search')]
-    public function search(Request $request,ManagerRegistry $doctrine, SessionInterface $sessionInterface)
-    {   
-      
-        // $myJob = new Job();
-       
-
-        // $form = $this->createForm(JobType::class,$myJob);
-        // $form->handleRequest($request);
-        
-        // if ($form->isSubmitted() && $form->isValid()) {
-        //     $data = $form->getData();
-        //     $jobName = $data->getJobName();
-        //     $jobCatagory = $data->getJobCatagory();
-        //     $jobLocation = $data->getJobLocation();
-        //     $queryBuilder = $doctrine()->getRepository(Job::class)->createQueryBuilder('i');
-        //     $queryBuilder->where('i.name LIKE :jobName')
-        //     ->setParameter('jobName', '%'.$jobName.'%');
-        //     if ($jobCatagory) {
-        //         $queryBuilder->andWhere('i.jobCatagory = :jobCatagory')
-        //             ->setParameter('jobCatagory', $jobCatagory);
-        //     }
-            
-        //     if ($jobLocation) {
-        //         $queryBuilder->andWhere('i.jobLocation = :jobLocation')
-        //             ->setParameter('jobLocation', $jobLocation);
-        //     }
-           
-        //     $datas = $queryBuilder->getQuery()->getResult();
-
-        //     return $this->render('job/search.html.twig', ['datas' => $datas]);
-        // }
-
-        // return $this->renderForm('job/index.html.twig', [
-        //     'form' => $form,
-            
-        // ]);
-//     #[Route('/filter', name: 'app_filter')]
-//     public function filterJob(ManagerRegistry $doctrine, Request $request): Response
-//     {
-      
-     
-//             $em= $doctrine->getManager();
-//             $events = $em->getRepository(Job::class)->findBy(array(),
-//             array('id' => 'ASC')
-//           );
-
-
-//         // dd($events);
-       
-//         return $this->render('event/filter.html.twig', [
-           
-//             'events' => $events
-//         ]);
-    
- }
+   
+ 
 }
