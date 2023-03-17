@@ -7,10 +7,10 @@
 
 <div>
 
-{% if data|length < 1 %}
+{% if searchJobs|length < 1 %}
 <p class="text-uppercase text-center m-5 bg-warning text-secondary ">0 result found</p>
 {% else %}
-{% for e in data %}
+{% for e in searchJobs %}
 
    {# {{ app.session.get('data')}}  #}
 <a href="/details/{{e.id}}">
@@ -38,6 +38,7 @@
 {% endif %}
 
  <a href="/job" class="btn btn-outline-primary  text-center text-light form-border m-3 form-btn-border m-3 px-4 btn-sm">Back</a>
+ {# <a href="/apply" class="btn btn-outline-primary  text-center text-light form-border m-3 form-btn-border m-3 px-4 btn-sm">Apply</a> #}
 
 </div>
 

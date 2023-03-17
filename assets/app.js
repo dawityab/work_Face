@@ -10,3 +10,12 @@ import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+
+
+
+function deleteConfirm() {
+
+// var bg = document.getElementById("delete");
+// bg.alert('Are you sure!');
+ alert("Hello Y");
+}

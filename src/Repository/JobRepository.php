@@ -39,6 +39,30 @@ class JobRepository extends ServiceEntityRepository
         }
     }
 
+    public function findByCriteria(array $criteria)
+    {
+        $qb = $this->createQueryBuilder('p');
+
+        if (!empty($criteria['jobName'])) {
+            $qb->andWhere('p.jobName LIKE :jobName')
+                ->setParameter('jobName', '%'.$criteria['jobName'].'%');
+        }
+
+        if (!empty($criteria['jobCatagory'])) {
+            $qb->andWhere('p.jobCatagory = :jobCatagory')
+                ->setParameter('jobCatagory', $criteria['jobCatagory']);
+        }
+
+        if (!empty($criteria['jobLocation'])) {
+            $qb->andWhere('p.jobLocation = :jobLocation')
+                ->setParameter('jobLocation', $criteria['jobLocation']);
+        }
+
+        // Add more criteria as needed
+
+        return $qb->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Job[] Returns an array of Job objects
 //     */

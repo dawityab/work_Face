@@ -11,6 +11,8 @@ parameters:
 
 
 services:
+
+    
     app.menu_builder:
         class: App\Menu\MenuBuilder
         arguments: ["@knp_menu.factory"]
@@ -37,5 +39,9 @@ services:
     App\Service\FileUploader:
         arguments:
             $targetDirectory: '%image_directory%'
+
+    # App\Repository\JobRepository:
+    # arguments:
+    #     $registry: '@doctrine'
     
     

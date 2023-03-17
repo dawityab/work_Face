@@ -95,17 +95,24 @@ class JobType extends AbstractType
             'label'   => false
           ])
      
-          ->add('save', SubmitType::class, [
-              // 'label' => 'Submit Job',
+          ->add('search', SubmitType::class, [
+              'label' => 'Submit Job',
               'attr' => ['class' => 'btn btn-outline-info   form-border m-3 px-4', 'placeholder' => 'Sumbit']
              
           ]);
+
+
+     
+          
   }
 
-  public function configureOptions(OptionsResolver $resolver): void
+  public function configureOptions(OptionsResolver $resolver)
   {
       $resolver->setDefaults([
-          'data_class' => Job::class,
-      ]);
+          'data_class' => [
+           Job::class,
+          ],
+         ]);
+         
   }
 }
