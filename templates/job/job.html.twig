@@ -3,11 +3,11 @@
 {% block title %}Hello JobController!{% endblock %}
 
 {% block body %}
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">WorkFace</a>
     <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
@@ -70,9 +70,9 @@
       <td>{{job.companyName}}</td>
       <td>{{job.jobPostedDate|date('F j, Y, g:i a')}}</td>
       <td>
-      <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_detail',{"id": job.id}) }}">Detail</a> 
-      <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_edit',{"id": job.id}) }}">Edit</a> 
-      <a class="btn btn-outline-info form-control-lg text-dark form-border m-3 form-btn-border px-md-5 btn-lg " href="{{ path('app_delete',{"id": job.id}) }}">Delete</a> 
+      <a class="btn btn-outline-info form-control-sm text-dark form-border m-1 form-btn-border px-sm-5 btn-sm m-1 d-flex justify-content-center" href="{{ path('app_detail',{"id": job.id}) }}"><span class="mx-auto">Detail</span></a> 
+      <a class="btn btn-outline-info form-control-sm text-dark form-border m-1 form-btn-border px-sm-5 btn-sm m-1 d-flex justify-content-center" href="{{ path('app_edit',{"id": job.id}) }}"><span class="mx-auto">Edit</span></a> 
+      <a class="btn btn-outline-info form-control-sm text-dark form-border m-1 form-btn-border px-sm-5 btn-sm m-1 d-flex justify-content-center" href="{{ path('app_delete',{"id": job.id}) }}"><span class="mx-auto">Delete</span></a>  
 
       </td>
     </tr>
@@ -92,25 +92,28 @@
 
 {# {% endif %} #}
  {% if jobs is empty %}
-<p>Welcome back {{ app.user.userName}}</p> 
+{# <p>Welcome back {{ app.user.userName}}</p>  #}
 <h3 class="bg-warning">There is no Job at the moment.</h3>
 
 {% else %}
 
 
 {% for job in jobs %}
-<a href="/details/{{job.id}}">
-<div class="card mb-3" style="width: 300px;">
+
+<div class="card mb-1" style="max-width: 18rem;">
   <div class="row g-0">
     <div class="col-md-4">
-     <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
-   
+       <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid-card rounded-start" alt="It was a Job image">
+   <a href="/details/{{job.id}}" class="btn btn-outline-info form-control-sm text-dark form-border m-1 form-btn-border px-sm-5 btn-sm m-1 d-flex justify-content-center"><span class="mx-auto">Detail</span>
+</a> 
+
       {# <img src="{{asset('build/images/image1.dd7a3cff.jpg')}}" class="img-fluid rounded-start" alt="It was a Job image"> #}
     </div> 
     <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{job.jobName}}</h5>
+      <div class="card-body mx-2">
+        <h6 class="card-title"><b>{{job.jobName}}</b></h6>
         <p class="card-title">Company - {{job.companyName}}</p>
+        <p class="card-text">{{job.jobLocation}}</p>
         <p class="card-text">Posted on:<small class="text-muted">{{job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
       </div>
      
@@ -119,7 +122,6 @@
 </div>
 
 {% endfor %}
-</a> 
 
 {% endif %}
 {% endif %}

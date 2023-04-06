@@ -1,6 +1,6 @@
-body {
+/* body {
     background-color: rgb(166, 216, 169);
-}
+} */
 .title{
     background-color: brown;
 }
@@ -40,7 +40,21 @@ body {
     .form-btn-border{
         border-radius: 0px 50px 0px; 
     }
-   .img-fluid{
-    width: 100px;
-    height: 100px;
-   }
+    .img-fluid{
+        width: 50px;
+        height: 50px;
+       }
+       .img-fluid-card{
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+       }
+    
+       /* span:hover{
+        color: rgb(255, 255, 237);
+      } */
+    
+      .btn-outline-info:hover span{
+        color: rgb(255, 255, 237);
+      } 
+     

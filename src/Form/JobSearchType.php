@@ -32,16 +32,17 @@ class JobSearchType extends AbstractType
             ->remove('jobPostedDate')
             ->remove('jobIamge')
             ->remove('companyName')
-            ->add('jobName', TextType::class, [
+            ->remove('jobName', TextType::class, [
               'attr' => ['class' => 'form-control form-control-lg form-border m-3', 'placeholder' => 'Job title'],
               'label'   => false
             ])
             ->add('jobCatagory', ChoiceType::class, [
+              'placeholder' => 'Catgories',
               'choices' => ['Administration and Management' => 'Administration and Management', 'Computin and ICT' => 'Computin and ICT', 'Construction and Building' => 'Construction and Building', 'Animator,Design and Art' => 'Animator,Design and Art',
                             'Education and Training' => 'Education and Training','Health and Safety' => 'Health and Safety', 'Finance and Accounting' => 'Finance and Accounting', 'Food Service' => 'Food Service', 'Transport and Logistic' => 'Transport and Logistic',
                             'Language and Culture' => 'Language and Culture','Volunteer and Social' => 'Volunteer and Social','Sport and Youth' => 'Sport and Youth', 'Security' => 'Security'],
               
-              'attr' => ['class' => 'form-control form-control-lg form-border m-3 ',  'placeholder' => 'Catgory'],
+              'attr' => ['class' => 'form-control form-control-lg form-border m-3 '],
               'label'   => false
              ])
              ->add('jobLocation', TextType::class, [
