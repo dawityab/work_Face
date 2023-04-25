@@ -19,11 +19,11 @@
         <li class="nav-item">
           <a  class="btn btn-outline-info text-dark form-border m-3 form-btn-border px-md-5 btn-sm "
    href="/{{app.user ? 'logout' : 'login'}}">
-{{app.user ? 'Logout' :  'Login'}}
+<span>{{app.user ? 'Logout' :  'Login'}}</span>
 </a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-outline-info text-dark form-border m-3 form-btn-border px-md-5 btn-sm" href="/">Home</a>
+          <a class="btn btn-outline-info text-dark form-border m-3 form-btn-border px-md-5 btn-sm" href="/"><span>Home</span></a>
         </li>
         <li class="nav-item">
           {# <a class="nav-link disabled" href="/delete">Show a detail of a Job</a> #}
@@ -113,7 +113,7 @@
                           <h6 class="card-title"><b>{{job.jobName}}</b></h6>
                           <p class="card-title"><i class="bi bi-buildings "></i>{{ job.companyName}}</p>
                           <p class="card-text"><i class="bi bi-geo-alt "></i>{{ job.jobLocation}}</p>
-                          <p class="card-text"><small class="text-muted"><i class="bi bi-calendar-date "></i> {{ job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
+                          <p class="card-text"><small class="text-muted"><i class="bi bi-calendar-date "></i>{{ job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
                         
                     </div>
                     <div class=" mt-auto mx-3 mb-3">

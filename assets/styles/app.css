@@ -57,6 +57,9 @@
       .btn-outline-info:hover span{
         color: rgb(255, 255, 237);
       } 
+     .register_btn:hover{
+      color: rgb(255, 255, 237);
+     }
     
       /* .custom-card {
         position: relative;

@@ -17,19 +17,30 @@
              
                
             {{ form_start(registrationForm) }}
-             <div class="form-outline mb-4">
-                   
-                     {{ form_row(registrationForm.email) }}
+
+              <div class="form-outline mb-4">
+              <div class="input-group"> 
+              <span class="input-group-text"><i class="bi bi-envelope-at"></i></span>
+       
+                {{ form_row(registrationForm.email, {'attr': {'class': ' form-control form-control-lg form-border m-3', 'placeholder': 'User Email'}}) }}
+             
              </div>
-           
-            <div class="form-outline mb-4">
-                    {{ form_row(registrationForm.plainPassword) }}
-            </div>
-            <div class="form-outline mb-4">
-                   
-                     {{ form_row(registrationForm.userName) }}
              </div>
 
+              <div class="form-outline mb-4">
+              <div class="input-group"> 
+              <span class="input-group-text"><i class="bi bi-file-lock"></i></span>
+       
+                    {{ form_row(registrationForm.plainPassword, {'attr': {'class': ' form-control form-control-lg form-border m-3', 'placeholder': 'User Password'}} ) }}
+            </div>
+             </div>
+            <div class="form-outline mb-4">
+            <div class="input-group"> 
+            <span class="input-group-text"><i class="bi bi-person"></i></span>
+              
+                     {{ form_row(registrationForm.userName, {'attr': {'class': ' form-control form-control-lg form-border m-3', 'placeholder': 'User Name'}} ) }}
+            </div>
+            </div>
             <div class="form-check d-flex justify-content-center mb-4">
                  
               
