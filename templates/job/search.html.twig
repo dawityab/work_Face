@@ -16,19 +16,20 @@
 
             <div class="card mb-3" style="width: 300px;">
               <div class="row g-0">
-                <div class="col-md-4">
+                <div class="col">
                 
                   <img src="{{asset('images/' ~ e.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
-                  <a href="/details/{{e.id}}" class="btn btn-outline-info form-control-sm text-dark form-border m-1 form-btn-border px-sm-5 btn-sm m-1 d-flex justify-content-center"><span class="mx-auto">Detail</span></a>
-
+                 
                   {# <img src="{{asset('build/images/image1.dd7a3cff.jpg')}}" class="img-fluid rounded-start" alt="It was a Job image"> #}
                 </div> 
-                <div class="col-md-8">
+                <div class="col">
                   <div class="card-body">
                   <h5 class="card-title">{{e.jobName}}</h5>
                   <p class="card-title">{{e.companyName}}</p>
                   <p class="card-title">{{e.jobLocation}}</p>
-                    <p class="card-text">Posted on:<small class="text-muted">{{e.jobPostedDate|date('F j, Y, g:i a')}}</small></p> 
+                  <p class="card-text">Posted on:<small class="text-muted">{{e.jobPostedDate|date('F j, Y, g:i a')}}</small></p> 
+                  <a href="/details/{{e.id}}" class="btn btn-outline-info form-control-sm text-dark form-border m-1 form-btn-border px-sm-5 btn-sm m-1 d-flex justify-content-center"><span class="mx-auto">Detail</span></a>
+
                   </div>
                 
                 </div>
