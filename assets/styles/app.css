@@ -1,31 +1,82 @@
 /* body {
     background-color: rgb(166, 216, 169);
 } */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+*{
+  box-sizing: border-box;
+}
 .title{
     background-color: brown;
 }
-.gradient-custom-3 {
-    /* fallback for old browsers */
-    background: #84fab0;
+
     
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-    }
-    .gradient-custom-4 {
-    /* fallback for old browsers */
-    background: #84fab0;
-    
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    .logo-img{
+      width: 80px;
+      height: 80px;
+      border: 5px solid rgba(14, 74, 158, 0.799); 
+      border-radius: 50%;
+     
     }
   
+    .landing-page-background{
+      background: rgb(212, 211, 222);
+      background: linear-gradient(90deg, rgb(208, 206, 238) 0%, rgba(230, 191, 236, 0.239) 35%, rgb(156, 227, 241) 100%);
+    
+    }
+    .jumbotron h1{
+      font-family: Arial, Helvetica, sans-serif;
+      font-family: Verdana;
+      color:rgba(14, 74, 158, 0.799);   
+      font-weight: 900;
+      font-size: 48px;
+      padding: 20px;
+     
+      
+    }
 
+    .land-page-search-col{
+      margin-top: 70px;
+      line-height: 1.5;
+      font-weight: bolder;
+      color: rgba(14, 74, 158, 0.799);  
+      padding-right: 0;
+      padding-left: 0;
+    }
+    .landing-page-image{
+      
+      position: relative;
+      display: inline-block;
+      box-shadow: inset;
+      padding-right: 0;
+      padding-left: 0;
+      }
+    .landing-page-image::before {
+        content: "";
+        position: absolute;
+        top: -5px; 
+        left: -300px; 
+        width: 300px; 
+        height: 300px; 
+        background-color: rgb(247, 220, 70); 
+        z-index: -1; 
+        border-radius: 46% 54% 5% 95% / 29% 49% 51% 71%;
+        transform: rotate(-10deg);
+      }
+      
+      .landing-page-image::after {
+        content: "";
+        position: absolute;
+        top: 100px; 
+        left: -300px; 
+        transform: translate(-50%, -50%);
+        width: 300px; 
+        height: 300px;
+        background-color: rgb(45, 45, 236); 
+        z-index: -2;
+        border-radius: 46% 54% 5% 95% / 29% 49% 51% 71%;
+        transform: rotate(-60deg);
+      }
+        
     .form-border{
 
         border-radius: 0px 50px 0px;
@@ -49,26 +100,161 @@
         height: 100px;
         margin: 10px;
        }
+    .landing-cards:hover{
+      transform: scale(1.02);
+     
+    }
+    .landing-cards{
+      background-color: rgb(210, 210, 235);
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
     
-       /* span:hover{
-        color: rgb(255, 255, 237);
-      } */
     
       .btn-outline-info:hover span{
         color: rgb(255, 255, 237);
       } 
+      .find-job:hover{
+        color: rgb(255, 255, 237);
+      }
      .register_btn:hover{
       color: rgb(255, 255, 237);
      }
+     td, th{
+      vertical-align: middle;
+     }
+     .card-image-size{
+      height: 150px; 
+      width: 200px; 
+      object-fit: cover;
+     }
+     .sign-in{
+      background-color:rgb(120, 120, 221);
+     
+     
+     }
+     .sign-Up{
+      background-color:rgb(120, 120, 221);
+      padding: 20px;
+     }
+     .apply-card {
+      background-color:rgb(120, 120, 221);
+      /* Remove default body margin */
+    }
+     .card-container{
+      display: flex;
+      justify-content: center;
+      gap: 10px; 
+      margin: 10px;
+     }
+     .card-container-landing{
+      display: flex;
+      justify-content: center;
+      gap: 10px; 
+     }
+    .job-card-container{
+      background-color: rgb(202, 202, 242);
+    }
+     .job-card {
+      transition: transform 0.3s;
+    }
     
-      /* .custom-card {
-        position: relative;
+    .job-card:hover {
+      transform: scale(1.2);
+    }
+    .fa-solid{
+      font-size: 48px;
+      color: rgb(30, 27, 142);
+      margin-bottom: 30px;
+    }
+    .landing-cards{
+      height: 350px;
+    }
+    .landing-card-title, .landing-card-text{
+      color: rgb(30, 27, 142);
+    }
+    
+    
+    .wave{
+      background-color: rgba(229, 229, 243, 0.837);
+      padding-right: 0;
+      padding-left: 0;
+    }
+    a > .bi{
+      font-size: 36px;
+      color: rgb(30, 27, 142);
+    }
+
+     @media (max-width: 576px) {
+     
+      .btn {
+        padding: 5px 20px;
       }
+      .landing-page-image{
+      
+        position: relative;
+        display: inline-block;
+        box-shadow: inset;
+        }
+      .landing-page-image::before {
+          content: "";
+          position: absolute;
+          top: -100px; 
+          left: -10px; 
+          width: 200px; 
+          height: 200px; 
+          background-color: rgb(247, 220, 70); 
+          z-index: -1; 
+          border-radius: 46% 54% 5% 95% / 29% 49% 51% 71%;
+          transform: rotate(-10deg);
+        }
+        .landing-page-image::after {
+          content: "";
+          position: absolute;
+          top: -200px; 
+          left: -10px; 
+          transform: translate(-50%, -50%);
+          width: 200px; 
+          height: 200px;
+          background-color: rgb(45, 45, 236); 
+          z-index: -2;
+          border-radius: 46% 54% 5% 95% / 29% 49% 51% 71%;
+          transform: rotate(-60deg);
+        }
   
-      .custom-card .btn {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-      } */
+      
+    
+    }
+    
+    @media (max-width: 375px) {
+     
+      .btn {
+        padding:  5px 20px;
+      }
+      .landing-page-image{
+      
+        position: relative;
+        display: inline-block;
+        box-shadow: inset;
+        }
+      .landing-page-image::before {
+          content: "";
+          position: absolute;
+          top: -100px; 
+          left: -10px; 
+          width: 200px; 
+          height: 200px; 
+          background-color: rgb(247, 220, 70); 
+          z-index: -1; 
+          border-radius: 46% 54% 5% 95% / 29% 49% 51% 71%;
+          transform: rotate(-10deg);
+        }
+  
+      
+    }
+   
+    
+    
+    
+    
+    

@@ -137,7 +137,7 @@ class ApplyType extends AbstractType
 
                 ->add('save', SubmitType::class, [
     'label' => 'Submit Job',
-                'attr' => ['class' => 'btn btn-outline-info form-border form-btn-border  m-3 px-4 btn-sm']
+                'attr' => ['class' => 'btn btn-outline-info text-dark form-border m-3 form-btn-border px-md-5 btn-sm submit']
    
 ]);
            

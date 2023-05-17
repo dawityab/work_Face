@@ -14,7 +14,7 @@
 
 
 
-<div class="card mb-3" style="max-width: 300px;">
+<div class="card mb-3" style="max-width: 18rem;">
   <div class="row g-0">
     
      <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
@@ -23,11 +23,11 @@
    
    
       <div class="card-body">
-      <h1>{{ job.companyName }}</h1>
+      <h1 class="bg-secondary text-light fs-1 p-2 m-2">{{ job.companyName }}</h1>
    
-        <h5 class="card-title">{{job.jobName}}</h5>
+        <h5 class="card-title bg-info p-2 m-2">{{job.jobName}}</h5>
         <p class="card-text">{{job.jobDescription}}</p>
-         <p class="card-text">{{job.jobSalary}}</p>
+         <p class="card-text">€{{job.jobSalary}}</p>
         <p class="card-text">Posted on:<small class="text-muted">{{job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
      
       </div>
