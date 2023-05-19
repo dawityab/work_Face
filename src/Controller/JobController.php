@@ -30,11 +30,10 @@ class JobController extends AbstractController
     public function index(Request $request, ManagerRegistry $doctrine, EntityManagerInterface $entityManager, SessionInterface $sessionInterface): Response
     {
         $home = 'Home';
-        // $data = $request->query->all();
-        // $sessionFormData  = $sessionInterface->get('data');
+        
         $jobs = $doctrine->getManager()->getRepository(Job::class)->findAll();
         
-        //  $myJob = new Job();
+        
        
 
         $form = $this->createForm(JobSearchType::class);
@@ -44,16 +43,12 @@ class JobController extends AbstractController
         
         if ($form->isSubmitted() && $form->isValid()) {
              $data = $form->getData();
-            // $jobName = $data->getJobName();
-            // $jobCatagory = $data->getJobCatagory();
-            // $jobLocation = $data->getJobLocation();
+          
             $searchJobs = $entityManager->getRepository(Job::class)->findByCriteria($data);
             return $this->render('job/search.html.twig', ['searchJobs' => $searchJobs]);
       
         }
-        // else{
-            // $searchJobs = $entityManager->getRepository(Job::class)->findAll();
-        // }
+     
        
      
         return $this->render('job/index.html.twig', [
@@ -65,32 +60,7 @@ class JobController extends AbstractController
             
         ]);
 
-        // return $this->render('job/search.html.twig', ['searchJobs' => $searchJobs]);
-      
-      
-        // $myEntity1 = new MyEntity1();
-        // $myEntity2 = new MyEntity2();
        
-        // $form = $this->createForm(JobType::class);
-      
-        // $form->handleRequest($request);
-       
-        // if ($form->isSubmitted() && $form->isValid()) {
-        //     $data = $form->getData();
-        //     $sessionInterface->set('data', $data);
-        //     return $this->render('job/index.html.twig', ['data' => $data, 'jobs' => $jobs]);
-        // }
-
-        // return $this->renderForm('job/index.html.twig', [
-            // 'form' => $form,
-            
-        // ]);
-
-
-        // return $this->render('job/index.html.twig', [
-            
-            
-        // ]);
     }
     
     #[Route('/job', name: 'app_job')]

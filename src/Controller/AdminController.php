@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Service\FileUploader;
 use App\Entity\Company;
 use App\Entity\Job;
+use App\Entity\Apply;
+use App\Form\ApplyType;
 use App\Form\JobType;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
@@ -17,10 +19,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 
-//  Require ROLE_ADMIN for *every* controller method in this class.
-
-//  @IsGranted("ROLE_ADMIN")
-
 #[IsGranted('ROLE_ADMIN')]
 class AdminController extends AbstractController
 {
@@ -30,7 +28,7 @@ class AdminController extends AbstractController
     {
          $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
-    // or add an optional message - seen by developers
+    
     $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having ROLE_ADMIN');
 
       
@@ -45,17 +43,69 @@ class AdminController extends AbstractController
 
        
         $jobs = $doctrine->getManager()->getRepository(Job::class)->findAll();
-        
+       
 
         $details = 'All Jobs';
        
 
         return $this->render('admin/job.html.twig', [
            "jobs" => $jobs,
+           
            'details' => $details,
             "controller_name" => "JobController"
 
         ]);
+
+
+       
+    }
+    #[Route('/applier', name: 'app_applier')]
+    public function applier( ManagerRegistry $doctrine): Response
+    {
+
+       
+       
+        $appliers = $doctrine->getManager()->getRepository(Apply::class)->findAll();
+
+        
+       
+
+        return $this->render('admin/applier.html.twig', [
+           
+           "appliers" => $appliers,
+          
+            "controller_name" => "JobController"
+
+        ]);
+
+
+       
+    }
+    #[Route('/detail/{id}', name: 'app_detail_applier')]
+    public function appDetails( $id, ManagerRegistry $doctrine): Response
+    {
+        $applier = $doctrine->getManager()->getRepository(Apply::class)->find($id);
+    //   dd($event);
+        $details = 'Details of the Applier';
+        return $this->render('admin/detail.html.twig', [
+            'details' => $details,
+            'applier' => $applier
+        ]);
+    }
+
+    #[Route('/delete/{id}', name: 'app_delete_applier')]
+    public function Delete($id, ManagerRegistry $doctrine): Response
+    {
+        $job = $doctrine->getManager()->getRepository(Apply::class)->find($id);
+        $em = $doctrine->getManager();
+        
+        $em->remove($job);
+        
+        $em->flush();
+
+        $this->addFlash("success", "One Apllier has removed");
+
+        return $this->redirectToRoute('app_job');
     }
     
 

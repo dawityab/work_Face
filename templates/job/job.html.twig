@@ -46,10 +46,10 @@
         <li>Your template at <code><a href="{{ 'C:/Users/dawit/OneDrive/Documents/DreamJob/templates/job/index.html.twig'|file_link(0) }}">templates/job/index.html.twig</a></code></li>
     </ul>
 </div> #}
-<div class="container">
+<div class="container admin-page">
 {% if is_granted('ROLE_ADMIN') %}
 <p>Welcome back {{ app.user.userName}}</p> 
-<table class="table table-bordered table-striped ">
+<table class="table table-bordered table-striped admin-page">
   <thead>
     <tr>
       <th>Job Id</th>
@@ -61,15 +61,15 @@
     </tr>
   </thead>
   {% for job in jobs %}
-  <tbody>
-    <tr>
+  <tbody class="admin-page">
+    <tr >
     
-      <td>{{job.id}}</td>
+      <td class="admin-page">{{job.id}}</td>
       {# <td class="flex-fill"> <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image"></td> #}
-      <td>{{job.jobName}}</td>
-      <td>{{job.companyName}}</td>
-      <td>{{job.jobPostedDate|date('F j, Y, g:i a')}}</td>
-      <td>
+      <td class="admin-page">{{job.jobName}}</td>
+      <td class="admin-page">{{job.companyName}}</td>
+      <td class="admin-page">{{job.jobPostedDate|date('F j, Y, g:i a')}}</td>
+      <td >
       <a class="btn btn-outline-info form-control-sm text-dark form-border  form-btn-border px-sm-5 btn-sm  d-flex justify-content-center" href="{{ path('app_detail',{"id": job.id}) }}"><span class="mx-auto">Detail</span></a> 
       <a class="btn btn-outline-info form-control-sm text-dark form-border  form-btn-border px-sm-5 btn-sm  d-flex justify-content-center" href="{{ path('app_edit',{"id": job.id}) }}"><span class="mx-auto">Edit</span></a> 
       <a class="btn btn-outline-info form-control-sm text-dark form-border  form-btn-border px-sm-5 btn-sm  d-flex justify-content-center" href="{{ path('app_delete',{"id": job.id}) }}"><span class="mx-auto">Delete</span></a>  

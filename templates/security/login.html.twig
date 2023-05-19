@@ -14,12 +14,25 @@
            <p><a href="{{ path('app_job') }}">Back </a></p> 
         </div>
     {% endif %}
-   
- <section class="sign-in container d-flex justify-content-center align-items-center min-vh-100">
+
+
+ <div class="container-sign-in">
+        <div class="sign-in-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#000b76" fill-opacity="0.5" d="M0,224L40,202.7C80,181,160,139,240,144C320,149,400,203,480,192C560,181,640,107,720,85.3C800,64,880,96,960,122.7C1040,149,1120,171,1200,176C1280,181,1360,171,1400,165.3L1440,160L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
+            <path fill="#0099ff" fill-opacity="0.5" d="M0,128L34.3,112C68.6,96,137,64,206,90.7C274.3,117,343,203,411,218.7C480,235,549,181,617,138.7C685.7,96,754,64,823,53.3C891.4,43,960,53,1029,53.3C1097.1,53,1166,43,1234,58.7C1302.9,75,1371,117,1406,138.7L1440,160L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path>
+
+        </svg>
+        </div>
+    <section class="sign-in container d-flex justify-content-center align-items-center">
   
     
-      <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-md-6">
+      <div class="row d-flex justify-content-center align-items-center"> 
+      <div class="col-md-12">
+      {# <img src="{{ asset('images/download.png') }}" alt="Image" class="user-icon" > #}
+       </div>
+        <div class="col-md-12">
+      
           <div class="card" style="width: 16rem;">
             <div class="card-body">
               <h2 class="text-uppercase text-center mb-5 title-border bg-secondary">Login</h2>
@@ -30,30 +43,32 @@
     <div class="form-group">
     {# <label for="username">Username</label> #}
     <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-person"></i></span>
+        {# <span class="input-group-text"><i class="bi bi-person"></i></span> #}
         
             <input 
                 type="email" 
                 value="{{ last_username }}" 
                 name="email" 
                 id="inputEmail" 
-                class="form-control form-control-lg form-border m-3" 
+              
+                class="form-control form-control-lg sign-in-input  m-3" 
                 placeholder="Your Email"
                 autocomplete="email" 
                 required 
                 autofocus
+                
             >
  </div>
 </div>
 <div class="form-group">
     {# <label for="username">Username</label> #}
     <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-file-lock"></i></span>
+        
             <input 
                 type="password" 
                 name="password" 
                 id="inputPassword" 
-                class="form-control form-control-lg form-border m-3" 
+                class="form-control form-control-lg sign-in-input m-3" 
                 autocomplete="current-password" 
                 placeholder="Your Password"
                 required
@@ -83,4 +98,7 @@
   </div>
 
 </section>
+ 
+ </div>  
+ 
 {% endblock %}

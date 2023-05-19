@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JobController!{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+  
+    <a class="navbar-brand" href="/"><img src="{{ asset('images/jf-image.png') }}" alt="Image" class="logo-img">
+   
+    </a>
+
+    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+       {% if is_granted('ROLE_ADMIN') %}   
+        <li class="nav-item">
+          <a class="nav-link active btn btn-outline-info  text-dark form-border m-3 form-btn-border px-md-5 btn-sm " aria-current="page" href="/create">Add New Job</a>
+        </li>
+       
+        {% endif %}
+        {% if not is_granted('IS_AUTHENTICATED_FULLY')%}
+         <li class="nav-item">
+          <a  class="btn btn-outline-info  text-dark form-border m-3 form-btn-border px-md-5 btn-sm "
+        href="/register"><span>Sign Up</span>
+        <a  class="btn btn-outline-info  text-dark form-border m-3 form-btn-border px-md-5 btn-sm "
+        href="/login"><span>Sign In</span>
+        </a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a  class="btn btn-outline-info  text-dark form-border m-3 form-btn-border px-md-5 btn-sm "
+        href="/{{app.user ? 'logout' : 'login'}}">
+        <span>{{app.user ? 'Logout' :  'Login'}}</span>
+        </a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+         {% if appliers is empty %}
+         <p class="text-uppercase text-center m-5 p-3 bg-warning text-secondary ">0 result found</p>
+         {% else %}
+           <a  class="btn btn-outline-info  text-dark form-border m-3 form-btn-border px-md-5 btn-sm" href="/"><span>Home</span>
+                
+           </a>
+           {% endif %}
+        </li>
+        <li class="nav-item">
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<table class="table table-bordered table-striped admin-page">
+  <thead>
+    <tr>
+      <th>Id</th>
+      {# <th>Company Image</th> #}
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Country</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+{% for applier in appliers %}
+  <tbody class="admin-page">
+    <tr >
+    
+      <td class="admin-page">{{applier.id}}</td>
+      {# <td class="flex-fill"> <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image"></td> #}
+      <td class="admin-page">{{applier.firstName}}</td>
+      <td class="admin-page">{{applier.lastName}}</td>
+      <td class="admin-page">{{applier.email}}</td>
+       <td class="admin-page">{{applier.country}}</td>
+      <td >
+      <a class="btn btn-outline-info form-control-sm text-dark form-border  form-btn-border px-sm-5 btn-sm  d-flex justify-content-center" href="{{ path('app_detail_applier',{"id": applier.id}) }}"><span class="mx-auto">Detail</span></a> 
+      <a class="btn btn-outline-info form-control-sm text-dark form-border  form-btn-border px-sm-5 btn-sm  d-flex justify-content-center" href="{{ path('app_delete_applier',{"id": applier.id}) }}"><span class="mx-auto">Delete</span></a>  
+
+      </td>
+    </tr>
+   
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}
+
