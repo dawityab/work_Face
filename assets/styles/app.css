@@ -126,9 +126,9 @@ body {
      .register_btn:hover{
       color: rgb(255, 255, 237);
      }
-     td, th{
+     /* td, th{
       vertical-align: middle;
-     }
+     } */
      .card-image-size{
       height: 150px; 
       width: 200px; 
@@ -149,9 +149,7 @@ body {
       align-items:center;
       
     }
-    .testimonial-part{
-      /* background-color: rgb(221, 235, 235); */
-    }
+   
     .testimonial {
       padding: 20px;
       margin: 30px auto;
@@ -223,9 +221,16 @@ body {
     .job-card:hover {
       transform: scale(1.2);
     }
+    .job-info {
+      padding: 10px;
+      border-radius: 20px;
+     
+     
+    }
     .admin-page{
       color: #fff;
     }
+    
     .fa-solid{
       font-size: 48px;
       color: rgb(30, 27, 142);
@@ -254,20 +259,7 @@ body {
      
     }
 
-    /* .wave-col{
-      position: relative;
-      display: inline-block;
-      width: 100%;
-    }
-    .wave-line{
-      position:absolute;
-      top: 0px;
-      left: 0;
-      z-index: 1;
-      width: 100%;
-    
-    }
-     */
+   
     .wave-col{
      
       position: relative;
