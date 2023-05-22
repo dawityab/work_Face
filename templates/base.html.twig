@@ -32,7 +32,7 @@
         {% endblock %}
         
 {% for message in app.flashes('notice') %}
-    <div class="flash-notice alert alert-secondary alert-dismissible close" role="alert" data-dismiss="alert" aria-label="Close">
+    <div class="flash-notice alert alert-secondary alert-dismissible close" role="alert" data-dismiss="alert" aria-label="Close" style="position: fixed; top: 20px;">
         {{ message }}
     </div>
 {% endfor %}
@@ -40,7 +40,7 @@
 {# read and display several types of flash messages #}
 {% for label, messages in app.flashes(['success', 'warning']) %}
     {% for message in messages %}
-        <div class="flash-{{ label }} alert alert-secondary alert-dismissible close" role="alert" data-dismiss="alert" aria-label="Close">
+        <div class="flash-{{ label }} alert alert-secondary alert-dismissible close" role="alert" data-dismiss="alert" aria-label="Close" style="position: fixed; top: 20px;">
             {{ message }}
         </div>
     {% endfor %}
@@ -49,7 +49,7 @@
 {# read and display all flash messages #}
 {% for label, messages in app.flashes %}
     {% for message in messages %}
-        <div class="flash-{{ label }} alert alert-secondary alert-dismissible close" role="alert" data-dismiss="alert" aria-label="Close">
+        <div class="flash-{{ label }} alert alert-secondary alert-dismissible close" role="alert" data-dismiss="alert" aria-label="Close" style="position: fixed; top: 20px;">
             {{ message }}
         </div>
     {% endfor %}
