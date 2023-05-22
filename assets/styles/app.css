@@ -197,15 +197,22 @@ body {
     .search-page-container{
       margin-top: 40px;
       margin-bottom: 10px;
-      
       gap: 10px; 
     }
-     .card-container{
+    /* .card {
+      display: flex;
+      flex-direction: column;
+      height:  300px !important;
+    } */
+     .card{
       display: flex;
       justify-content: center;
       gap: 10px; 
       margin: 10px;
      }
+
+
+   
      .card-container-landing{
       display: flex;
       justify-content: center;

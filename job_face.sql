@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2023 at 09:41 AM
+-- Generation Time: May 22, 2023 at 04:16 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -58,7 +58,7 @@ CREATE TABLE `apply` (
 --
 
 INSERT INTO `apply` (`id`, `title`, `gender`, `first_name`, `last_name`, `email`, `country`, `cv`, `attachments`, `cover_letter`) VALUES
-(3, '--', 'Male', 'Afnin', 'Dawit', 'Afnin@gmail.com', 'Not EU but parment work permit', 'Test-1-6466e9ad54ba7.pdf', 'Test-1-6466e9ad5539f.pdf', 'Test-1-6466e9ad5594a.pdf');
+(4, '--', 'Male', 'Afnin', 'Dawit', 'Afnin@gmail.com', 'Not EU but parment work permit', 'Test-1-6466e9ad5594a-646acf5abe1c9.pdf', '001-fit-ausbildungsliste-642df5c0b7bcb-646acf5abeb7b.pdf', '001-fit-ausbildungsliste-642df5c0b7bcb-646acf5abf490.pdf');
 
 -- --------------------------------------------------------
 
@@ -108,12 +108,15 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`id`, `job_name`, `job_catagory`, `job_description`, `job_isactive`, `job_salary`, `job_posted_date`, `job_iamge`, `job_location`, `company_name`) VALUES
-(1, 'Fullstack Web Developer', 'Computin and ICT', 'Im Auftrag unseres Kunden suchen wir einen erfahrenen Fullstack Developer (m/w/d) mit fundierten Kenntnissen in Java und JavaScript für die Entwicklung von Atlassian Connect Erweiterungen und Atlassian AddOns. Unser Kunde ist ein österreichisches Unterneh', 1, 4500, '2023-03-30 08:00:00', 'Screenshot-15-6434b1431af8e.png', 'Wien', 'HollausGmbH'),
-(2, 'Front-End Web Developer', 'Computin and ICT', 'Use your skills to move the world forward.  Master’s degree in computer science, information technology, media design or similar. Several years of experience implementing web frontends. Excellent skills in HTML5, CSS3, JavaScript/ES6 and TypeScript. Exper', 1, 3500, '2023-03-31 09:00:00', 'Screenshot-2-6434b19712361.png', 'Salzburg', 'GT IT'),
-(3, 'Teacher', 'Education and Training', 'Freude am Arbeiten als Teil eines Teams Bereitschaft anzupacken, wenn es viel zu tun gibt Verständliches Erklären mathematischer Sachverhalte Spaß am Arbeiten mit Zahlen und großen Datenmengen Verhandlungssicheres Deutsch zwecks mündlicher und schriftlich', 1, 3000, '2023-04-01 10:00:00', '2022-07-01-6434b1cf9e8d7.png', 'Salzburg', 'Bright School'),
-(4, 'Teacher', 'Education and Training', 'Lead a team of scrum masters who work inside their assigned SCRUM teams to drive delivery and continuous improvements Provide agile coaching, training, and mentoring to SCRUM Masters, development teams, managers, and executives on agile principles, practi', 1, 3000, '2023-04-02 09:00:00', 'Screenshot-24-6434b20ee5d72.png', 'Salzburg', 'Bright School'),
-(5, 'Hair stylist', 'Animator,Design and Art', 'Good hair styles', 1, 2800, '2023-04-04 11:00:00', 'Screenshot-18-6434b246479b3.png', 'Wien', 'DY'),
-(8, 'Food controller', 'Food Service', 'Good managing the food', 1, 2800, '2023-05-01 09:00:00', 'image1-6459784725e45.jpg', 'Wien', 'Testing World AG');
+(1, 'Fullstack Developer', 'Computin and ICT', 'Fundierte Kenntnisse in Java und HTTP-basierten Diensten Erfahrung mit Cross-Browser Entwicklung (HTML5, CSS3, JavaScript) Security-Awareness im Web-Bereich Breites Wissen in anderen Programmiersprachen und Technologien Erfahrung mit Versionskontrolle mit', 1, 3900, '2023-05-10 10:00:00', 'pic1-646955eee92c6.png', 'Wien', 'Manpower'),
+(2, 'Angular & Web Developer', 'Computin and ICT', 'Planung und technische Realisierung von marktführenden state-of-the-art Lösungen mit Angular, Angular Material, und Javascript für das Gesundheitswesen Implementierung, Mitgestaltung und Customizing unserer innovativen Lösungen Betreuung und Erweiterung v', 1, 4500, '2023-05-11 09:00:00', 'pic2-6469570ae14ad.png', 'Wien', 'x-tention Informationstechnologie GmbH'),
+(3, 'Python Developer', 'Computin and ICT', 'Mehrjährige, fundierte Erfahrung mit Python im Bereich der Webentwicklung Routine im Umgang mit Datenbanken wie MySQL, PostgreSQL, MSSQL oder Oracle Routinierter Umgang mit APIs (REST, GraphQL, SOAP) sowie weitreichende Erfahrung mit Django REST Framework', 1, 4500, '2023-05-13 12:00:00', 'pic3-646957b4b47c8.png', 'Wien', 'ANEXIA Internetdienstleistungs GmbH'),
+(4, 'Office Manager', 'Administration and Management', 'Mitarbeiter*innen stehen bei uns an erster Stelle. Im Rahmen eines abgestimmten Entwicklungsplans ist es unser Ziel, Dich bestmöglich zu fördern und weiterzubringen- immer mit Blick auf Deine individuelle Situation. Start Up Mentalität im Großkonzern. Als', 1, 4590, '2023-05-14 11:00:00', 'pic4-646958c6c8266.png', 'Graz', 'Philip Morris Austria GmbH'),
+(5, 'Category Manager:in Bier', 'Administration and Management', 'Steuerung der übertragenen Produktkategorien mit Umsatz- und Ergebnisverantwortung Gestaltung des Sortiments bei laufender Beobachtung und Optimierung der Category unter Berücksichtigung der Qualitätsanforderung unserer Kund:innen Markt- und Trendbeobacht', 1, 3000, '2023-05-15 00:00:00', 'pic5-64695bd8d54be.png', 'Graz', 'Billa AG'),
+(6, 'Technical Project/Sales Manager Food Solutions', 'Administration and Management', 'Die selbständige Projektleitung im Bereich der funktionalen Food Solutions umfasst Rezepturerstellung oder die interne Entwicklungskoordinierung mit unserem Entwicklungsteam Die Angebotserstellung und Angebotslegung, sowie Nachverfolgung der jeweiligen Pr', 1, 3000, '2023-05-15 09:00:00', 'pic6-64695c77b172a.png', 'Salzburg', 'Brenntag Austria GmbH'),
+(7, 'Mitarbeiter Import/Export', 'Finance and Accounting', 'Sie koordinieren die logistische Abwicklung sämtlicher Transporte im internationalen Bereich, von der Containerbeladung bis zum LKW-Transport in Zusammenarbeit mit den beauftragten Speditionen Sie überwachen die termingerechte Lieferung und koordinieren T', 1, 2400, '2023-05-16 12:00:00', 'pic7-64695d59183d5.png', 'Salzburg', 'Grausam Handels GmbH'),
+(8, 'Kaufmännische Sachbearbeiter', 'Finance and Accounting', 'Sie übernehmen kaufmännische Aufgaben der Distributionslogistik unter Einhaltung der aktuellen Good Distribution Practice (GDP) gemäß der jährlichen GDP-Schulung und der lokalen Verfahren Sie entwickeln schnell Kenntnisse über unsere logistischen Lieferke', 1, 2000, '2023-05-17 13:00:00', 'pic8-64695e066e041.png', 'Wien', 'GE Healthcare Austria GmbH & Co OG'),
+(9, 'LKW Lenker internationale Pharmatransporte', 'Transport and Logistic', 'Durchführung von internationalen Pharma- und Blutplasmatransporten mit Kühl-Hängerzug Überprüfung der Lieferscheine bei der Beladung Be- und Entladung der Ware mit Handhubwagen Ladungssicherung Scannen der Lieferscheine an der Entladestelle Kommunikation ', 1, 2100, '2023-05-18 12:00:00', 'pic9-64695f6b9bf32.png', 'Wien', 'Müller Transporte GmbH');
 
 -- --------------------------------------------------------
 
@@ -151,9 +154,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `user_name`) VALUES
 (2, 'Admin@admin.com', '[\"ROLE_ADMIN\"]', '$2y$13$tph3kBd24AAOv5ciTmx8Ae5C9gj9Vv50wFvj2iDSlK2R3DaCooEdy', 'Admin'),
-(3, 'Soli@gmail.com', '[]', '$2y$13$offrRwM3RQ.1b57QUix31.yuIkDOml3msOXC.KoxhrhlWZJrJegpy', 'Soli'),
-(4, 'danieal@gm.co', '[]', '$2y$13$4oXzS63siz/AZn5TipLHlOaBhDoNWUtcLhc0Qm0jjkyR0IOVWOwbe', 'Dan'),
-(5, 'Afnin@gm.co', '[]', '$2y$13$1eMtanY5/KZbbzHCRcfZReQgePMfYDMwOt6GOzNM8RhDN0LFC05ya', 'Afi');
+(6, 'Soli@gmail.com', '[]', '$2y$13$n5msmIH.U55z/s1cZJCTteC9zSPKCtgxAYBptKjMui6.vqbUM4nBO', 'Soli'),
+(9, 'Afnin@gm.co', '[]', '$2y$13$HraCqO8LPSBFV.3C8080EuX3msW2lb1OVR4yRYpvcGkyGKXnJPwby', 'Afi');
 
 --
 -- Indexes for dumped tables
@@ -214,13 +216,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `apply`
 --
 ALTER TABLE `apply`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `messenger_messages`
@@ -232,7 +234,7 @@ ALTER TABLE `messenger_messages`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -14,10 +14,10 @@
 
         {# {{ app.session.get('data')}}  #}
 
-            <div class="card" style="width: 18rem;">
+           
               <div class="row">
-                <div class="col-md-12">
-                
+                <div class="col-md">
+                 <div class="card" style="width: 18rem;">
                   <img src="{{asset('images/' ~ e.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
                  
                   {# <img src="{{asset('build/images/image1.dd7a3cff.jpg')}}" class="img-fluid rounded-start" alt="It was a Job image"> #}
@@ -29,17 +29,17 @@
                   <p class="card-text">Posted on:<small class="text-muted">{{e.jobPostedDate|date('F j, Y, g:i a')}}</small></p> 
                   <a href="/details/{{e.id}}" class="btn btn-outline-info form-control-sm text-dark form-border m-1 form-btn-border px-sm-5 btn-sm m-1 d-flex justify-content-center"><span class="mx-auto">Detail</span></a>
 
-                </div>
-                
+                    </div>
+                 </div>
+            </div>
+          
+    </div>
                 
                 {% endfor %}
                 {% endif %}
               
-              </div>
-            </div>
-          
-    </div>
-
+             
+</div>
 <div class="container d-flex search-page-container justify-content-center align-content-center flex-wrap w-80 mx-auto">
     <div class="row">
           <div class="col-md">

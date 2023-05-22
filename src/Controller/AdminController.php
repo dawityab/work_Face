@@ -5,6 +5,7 @@ use App\Service\FileUploader;
 use App\Entity\Company;
 use App\Entity\Job;
 use App\Entity\Apply;
+use App\Entity\User;
 use App\Form\ApplyType;
 use App\Form\JobType;
 use Doctrine\Persistence\ManagerRegistry;
@@ -59,7 +60,7 @@ class AdminController extends AbstractController
 
        
     }
-    #[Route('/applier', name: 'app_applier')]
+    #[Route('/applier', name: 'app_detail_appliers')]
     public function applier( ManagerRegistry $doctrine): Response
     {
 
@@ -81,25 +82,62 @@ class AdminController extends AbstractController
 
        
     }
-    #[Route('/detail/{id}', name: 'app_detail_applier')]
-    public function appDetails( $id, ManagerRegistry $doctrine): Response
+    #[Route('/users', name: 'app_detail_users')]
+    public function Users(ManagerRegistry $doctrine): Response
+    {
+        $users = $doctrine->getManager()->getRepository(User::class)->findAll();
+    //   dd($event);
+        $details = 'Details of the Users';
+        return $this->render('admin/users.html.twig', [
+            'details' => $details,
+            'users' => $users
+        ]);
+    }
+    #[Route('/user/{id}', name: 'app_detail_user')]
+    public function UserDetail($id, ManagerRegistry $doctrine): Response
+    {
+        $user = $doctrine->getManager()->getRepository(User::class)->find($id);
+    //   dd($event);
+        $details = 'Details of the User';
+        return $this->render('admin/userDetails.html.twig', [
+            'details' => $details,
+            'user' => $user
+        ]);
+    }
+
+    #[Route('/deleteUser/{id}', name: 'app_delete_user')]
+    public function DeleteUser($id, ManagerRegistry $doctrine): Response
+    {
+        $user = $doctrine->getManager()->getRepository(User::class)->find($id);
+        $em = $doctrine->getManager();
+        
+        $em->remove($user);
+        
+        $em->flush();
+
+        $this->addFlash("success", "One User has removed");
+
+        return $this->redirectToRoute('app_job');
+    }
+
+    #[Route('/applier/{id}', name: 'app_detail_applier')]
+    public function applierDetail($id, ManagerRegistry $doctrine): Response
     {
         $applier = $doctrine->getManager()->getRepository(Apply::class)->find($id);
     //   dd($event);
-        $details = 'Details of the Applier';
-        return $this->render('admin/detail.html.twig', [
+        $details = 'Details of the User';
+        return $this->render('admin/applierDetails.html.twig', [
             'details' => $details,
             'applier' => $applier
         ]);
     }
-
-    #[Route('/delete/{id}', name: 'app_delete_applier')]
+    #[Route('/deleteApplier/{id}', name: 'app_delete_applier')]
     public function Delete($id, ManagerRegistry $doctrine): Response
     {
-        $job = $doctrine->getManager()->getRepository(Apply::class)->find($id);
+        $applier = $doctrine->getManager()->getRepository(Apply::class)->find($id);
         $em = $doctrine->getManager();
         
-        $em->remove($job);
+        $em->remove($applier);
         
         $em->flush();
 
@@ -107,6 +145,7 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('app_job');
     }
-    
+
+   
 
 }

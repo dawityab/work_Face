@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Job Details!{% endblock %}
+
+{% block body %}
+
+
+<div class="d-flex details-pages justify-content-center align-content-center flex-wrap w-80 mx-auto">
+   
+    
+    
+  
+
+
+
+
+<div class="card mb-3" style="max-width: 18rem;">
+  <div class="row g-0">
+    
+    
+   
+      {# <img src="{{asset('build/images/image1.dd7a3cff.jpg')}}" class="img-fluid rounded-start" alt="It was a Job image"> #}
+   
+   
+      <div style="opacity: 0.9;" class="  card-body bg-info text-light ">
+      <p  style="opacity: 0.9;"class="   text-dark   p-2 ">User Name {{user.userName}} </p>
+     
+      <p style="opacity: 0.9;" class="  card-text  text-dark  p-2">E-Mail - {{user.email}}</p>
+           
+       
+      </div>
+  
+  </div>
+</div>
+   
+</div> 
+      <div class="d-flex w-80 justify-content-center align-content-center flex-wrap w-80 mx-auto">
+
+        {% if is_granted('ROLE_ADMIN') %}   
+         <a href="/job" class="btn btn-outline-info form-control-sm text-dark form-border m-1 form-btn-border px-sm-5 btn-sm m-1 d-flex justify-content-center"><span class="mx-auto">More Jobs</span>
+        </a>
+
+        <a href="/" class="btn btn-outline-info form-control-sm text-dark form-border m-1 form-btn-border px-sm-5 btn-sm m-1 d-flex justify-content-center"><span class="mx-auto">Back to home</span>
+        </a>
+
+        {% endif %}
+
+
+      </div>
+
+
+
+{% endblock %}

@@ -14,10 +14,10 @@
 
 
 
-<div class="card mb-3" style="max-width: 18rem;">
+<div class="card mb-3" style="max-width: 36rem;">
   <div class="row g-0">
     
-     <img src="{{asset('images/' ~ job.jobIamge)}}" class="img-fluid rounded-start" alt="It was a Job image">
+     <img src="{{asset('images/' ~ job.jobIamge)}}" class="card-img-top mx-auto card-image-size" alt="It was a Job image">
    
       {# <img src="{{asset('build/images/image1.dd7a3cff.jpg')}}" class="img-fluid rounded-start" alt="It was a Job image"> #}
    
@@ -27,8 +27,8 @@
    
         <h5 class="card-title bg-info p-2 m-2">{{job.jobName}}</h5>
         <p class="card-text">{{job.jobDescription}}</p>
-         <p class="card-text">€{{job.jobSalary}}</p>
-        <p class="card-text">Posted on:<small class="text-muted">{{job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
+         <p class="card-text"><i class="bi bi-currency-euro"></i>{{job.jobSalary}}</p>
+        <p class="card-text"> <i class="bi bi-calendar-date "></i> <small class="text-muted">{{ job.jobPostedDate|date('F j, Y, g:i a')}}</small></p>
      
       </div>
   
@@ -36,7 +36,7 @@
 </div>
    
 </div> 
-      <div class="d-flex w-80 justify-content-center align-content-center flex-wrap w-80 mx-auto">
+      <div class="d-flex  justify-content-center align-content-center flex-wrap w-80 mx-auto">
 
         {% if is_granted('ROLE_ADMIN') %}   
          <a href="/job" class="btn btn-outline-info form-control-sm text-dark form-border m-1 form-btn-border px-sm-5 btn-sm m-1 d-flex justify-content-center"><span class="mx-auto">More Jobs</span>
