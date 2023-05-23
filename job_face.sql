@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2023 at 04:16 AM
+-- Generation Time: May 23, 2023 at 02:30 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -58,7 +58,11 @@ CREATE TABLE `apply` (
 --
 
 INSERT INTO `apply` (`id`, `title`, `gender`, `first_name`, `last_name`, `email`, `country`, `cv`, `attachments`, `cover_letter`) VALUES
-(4, '--', 'Male', 'Afnin', 'Dawit', 'Afnin@gmail.com', 'Not EU but parment work permit', 'Test-1-6466e9ad5594a-646acf5abe1c9.pdf', '001-fit-ausbildungsliste-642df5c0b7bcb-646acf5abeb7b.pdf', '001-fit-ausbildungsliste-642df5c0b7bcb-646acf5abf490.pdf');
+(4, '--', 'Male', 'Afnin', 'Dawit', 'Afnin@gmail.com', 'Not EU but parment work permit', 'Test-1-6466e9ad5594a-646acf5abe1c9.pdf', '001-fit-ausbildungsliste-642df5c0b7bcb-646acf5abeb7b.pdf', '001-fit-ausbildungsliste-642df5c0b7bcb-646acf5abf490.pdf'),
+(6, '--', 'Male', 'Afnin', 'Dawit', 'Afnin@gmail.com', 'Not EU but parment work permit', 'Test-1-6381804f90f85-646bf7e2cf989.pdf', 'Test-1-6381804f91697-646bf7e2d0d93.pdf', 'Test-1-64648f2a848e7-646bf7e2d1cd0.pdf'),
+(7, '--', 'Female', 'Soliyana', 'Dawit', 'Soli@gm.com', 'Not EU but parment work permit', 'Test-1-638410b4b5d8e-646bfc700c85e.pdf', 'Test-1-64648f2a86a57-646bfc700d6b4.pdf', 'Test-1-64648e7c97989-646bfc700e5ea.pdf'),
+(8, '--', 'Female', 'Soliyana', 'Dawit', 'Soli@gm.com', 'Not EU but parment work permit', 'Test-1-6466e9ad54ba7-646bfcd13a683.pdf', 'Test-1-64648e7c97989-646bfcd13b8d8.pdf', 'Test-1-64648e7c97989-646bfcd13c9a9.pdf'),
+(9, '--', 'Female', 'Soliyana', 'Dawit', 'Soli@gm.com', 'Not EU but parment work permit', 'Test-1-64648e7c97989-646bfcd13b8d8-646bfd3713232.pdf', 'Test-1-6381804f90f85-646bfd3714384.pdf', 'Test-1-6381804f90f85-646bfd37150c8.pdf');
 
 -- --------------------------------------------------------
 
@@ -216,7 +220,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `apply`
 --
 ALTER TABLE `apply`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `job`
