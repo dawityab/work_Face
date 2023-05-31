@@ -130,9 +130,12 @@ body {
       vertical-align: middle;
      } */
      .card-image-size{
-      height: 150px; 
+      height: 100px; 
       width: 200px; 
       object-fit: cover;
+     }
+     .btbtn{
+      margin-top: auto;
      }
      .sign-in{
       
@@ -211,6 +214,9 @@ body {
       margin: 10px;
      }
 
+     .card-height {
+      height: 300px; 
+    }
 
    
      .card-container-landing{
@@ -220,6 +226,7 @@ body {
      }
     .job-card-container{
       background-color: rgb(202, 202, 242);
+      
     }
      .job-card {
       transition: transform 0.3s;
