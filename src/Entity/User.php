@@ -99,14 +99,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+       
     }
 
-    // public function isAdmin(): bool
-    // {
-    //     return in_array(self::ROLE_ADMIN, $this->getRoles());
-    // }
+  
 
     public function getUserName(): ?string
     {

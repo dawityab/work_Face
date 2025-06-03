@@ -54,7 +54,7 @@ class JobSearchType extends AbstractType
               'attr' => ['class' => 'btn btn-outline-info   form-border m-3 px-4', 'placeholder' => 'Sumbit']
              
           ]);
-            // Add the fields you want to use for search
+          
         ;
     }
 

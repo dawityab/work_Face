@@ -61,18 +61,17 @@ class ApplyType extends AbstractType
                 'choices' => ['EU and parment work permit' => 'EU and parment work permit','Not EU but parment work permit' => 'Not EU but parment work permit',
                 'Not EU also temporary work permit' => 'Not EU also temporary work permit',
                 'Other' => 'Other'],
-                // 'attr' => ['class' => 'form-control form-control-lg form-border m-3', 'placeholder' => 'Country'],
-                // 'label'   => false
+               
                
                ])
                ->add('cv', FileType::class, [
                  'label' => 'Upload CV (PDF file)',
-              //unmapped means that is not associated to any entity property
+             
                 'mapped' => false,
-              //not mandatory to have a file
+              
                 'required' => false,
 
-              //in the associated entity, so you can use the PHP constraint classes as validators
+             
                 'constraints' => [
               new File([
                 'maxSize' => '1024k',
@@ -84,18 +83,17 @@ class ApplyType extends AbstractType
     ])
                   
 ], 
-// 'attr' => ['class' => 'form-control form-control-lg form-border m-3', 'placeholder' => 'Upload CV'],
-  //  'label'   => false
+
 
 ])
                 ->add('attachments', FileType::class, [
                      'label' => 'Upload attachments (PDF file)',
-                //unmapped means that is not associated to any entity property
+               
                     'mapped' => false,
-                //not mandatory to have a file
+                
                     'required' => false,
 
-                //in the associated entity, so you can use the PHP constraint classes as validators
+                
                     'constraints' => [
                 new File([
                     'maxSize' => '1024k',
@@ -107,19 +105,16 @@ class ApplyType extends AbstractType
                 ])
                     
                 ], 
-                // 'attr' => ['class' => 'form-control form-control-lg form-border m-3', 'placeholder' => 'Upload Attachments'],
-                    // 'label'   => false
-
+                
                 ])
                 ->add('coverLetter', FileType::class, [
                     'label' => 'Upload Cover Letter (PDF file)',
-                  //unmapped means that is not associated to any entity property
+                 
                     'mapped' => false,
-                  //not mandatory to have a file
+                  
                     'required' => false,
     
-                  //in the associated entity, so you can use the PHP constraint classes as validators
-                    'constraints' => [
+                  'constraints' => [
                   new File([
                     'maxSize' => '1024k',
                     'mimeTypes' => [
@@ -130,8 +125,7 @@ class ApplyType extends AbstractType
         ])
                       
     ], 
-    // 'attr' => ['class' => 'form-control form-control-lg form-border m-3', 'placeholder' => 'Upload Cover Letter'],
-      //  'label'   => false
+    
     
 ])
 
