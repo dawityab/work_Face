@@ -58,11 +58,7 @@ class JobType extends AbstractType
             'attr' => ['class' => 'form-control form-control-lg form-border m-3', 'placeholder' => 'Posted Date'],
             'label'   => false
           ])
-        //   ->add('date', DateTimeType::class, [
-        //     'attr' => ['style' => 'margin-bottom:15px','placeholder' => 'Event Date']
-        //   ])
-          //create an Object as $product = new Product;
-                //build the form using the file type input
+       
           ->add('jobIamge', FileType::class, [
                   'label' => 'Upload Picture',
                 //unmapped means that is not associated to any entity property

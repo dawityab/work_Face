@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: symfony-app
+    env: docker
+    repo: https://github.com/your-username/your-repo-name
+    branch: main
+    plan: free
+    region: oregon
+    buildCommand: ""           # Docker handles the build
+    startCommand: "php -S 0.0.0.0:8000 -t public"
+    envVars:
+      - key: APP_ENV
+        value: prod
+      - key: APP_SECRET
+        value: your_app_secret_here
+      - key: DATABASE_URL
+        value: sqlite:///%kernel.project_dir%/var/data.db
